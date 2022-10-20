@@ -8,9 +8,32 @@
   Comportamento:
     - average([2, 2]) // Retorno: 2;
     - average([1, 1]) // Retorno: 1;
-    - average([1, '2']) // Retorno: undefined
+    - average([1, '2']) // Retorno: undefined;
 */
 
-const average = () => {};
+/**
+ * 
+ * @param {Primeiro} value Recebe um array
+ * @returns retorna a média dos números desse array ou undefined caso tenha algo inválido
+ */
+const average = (value) => {
+  let result = 0;
+  // console.log(value.length);
+
+  if (value.length === 0) {
+    return;
+  }
+
+  for (let i of value) {
+    if (typeof i === 'number') {
+      result += i;
+    } else {
+      return;
+    }
+  }
+
+  const resultFinal = Math.round(result / value.length);
+  return resultFinal;
+};
 
 module.exports = average;
